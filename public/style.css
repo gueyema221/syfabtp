@@ -111,3 +111,30 @@ body{font-feature-settings:"ss01" on}
 @media(prefers-reduced-motion:reduce){
  *,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}
 }
+
+/* Portfolio carousel and brand contact marks */
+.portfolio-slider{display:grid;grid-template-columns:42px minmax(0,1fr) 42px;align-items:center;gap:14px}
+.portfolio-track{min-width:0;overflow:hidden}
+.portfolio-track .portfolio-grid{display:flex;gap:18px;transition:transform .45s cubic-bezier(.2,.7,.2,1);will-change:transform}
+.portfolio-track .project{flex:0 0 calc((100% - 36px)/3);grid-row:auto;min-width:0}
+.portfolio-track .project-large{grid-column:auto}
+.portfolio-track .project-visual,.portfolio-track .project-large .project-visual{height:245px}
+.portfolio-arrow{width:42px;height:42px;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.08);color:#fff;font:300 30px/1 Manrope;cursor:pointer;transition:background .2s,border .2s}
+.portfolio-arrow:hover{background:var(--gold);border-color:var(--gold)}
+.portfolio-dots{display:flex;justify-content:center;gap:8px;margin-top:25px}
+.portfolio-dots button{width:7px;height:7px;border:0;border-radius:50%;background:#718895;padding:0;cursor:pointer}
+.portfolio-dots button[aria-current="true"]{width:23px;border-radius:8px;background:var(--gold2)}
+.portfolio-note{margin-top:18px}
+.brand-contact{background:#fff!important}
+.brand-contact svg{width:25px;height:25px;display:block}
+.whatsapp-icon{color:#25D366!important}
+.gmail-icon{color:#4285F4!important}
+.whatsapp-float{background:#25D366}
+.whatsapp-float svg{width:31px;height:31px}
+@media(max-width:900px){.portfolio-track .project{flex-basis:calc((100% - 18px)/2)}}
+@media(max-width:650px){
+ .portfolio-slider{grid-template-columns:30px minmax(0,1fr) 30px;gap:7px}
+ .portfolio-arrow{width:30px;height:36px;font-size:24px}
+ .portfolio-track .project{flex-basis:100%}
+ .portfolio-track .project-visual,.portfolio-track .project-large .project-visual{height:230px}
+}
