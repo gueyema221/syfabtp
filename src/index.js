@@ -31,7 +31,7 @@ export default {
       const phone = String(body.phone || "").trim().slice(0, 40);
       const message = String(body.message || "").trim().slice(0, 5000);
 
-      if (!name || !email || !message || !/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email)) {
+      if (!name || !email || !message || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
         return json({ ok: false, error: "Nom, e-mail valide et message sont obligatoires." }, 400);
       }
 
