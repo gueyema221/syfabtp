@@ -35,3 +35,38 @@ form?.addEventListener("submit", event => {
   window.open(whatsappUrl, "_blank", "noopener,noreferrer");
 });
 
+
+/* Accessible portfolio carousel */
+(() => {
+ const track=document.querySelector(".portfolio-track .portfolio-grid");
+ const prev=document.querySelector(".portfolio-prev");
+ const next=document.querySelector(".portfolio-next");
+ const dots=document.querySelector(".portfolio-dots");
+ if(!track||!prev||!next||!dots)return;
+ const cards=[...track.children];
+ let index=0;
+ const perView=()=>window.matchMedia("(max-width:650px)").matches?1:window.matchMedia("(max-width:900px)").matches?2:3;
+ const max=()=>Math.max(0,cards.length-perView());
+ const render=()=>{
+   index=Math.min(index,max());
+   const card=cards[0];
+   const gap=parseFloat(getComputedStyle(track).gap)||18;
+   const step=card.getBoundingClientRect().width+gap;
+   track.style.transform="translateX("+(-index*step)+"px)";
+   [...dots.children].forEach((dot,i)=>dot.setAttribute("aria-current",String(i===index)));
+   prev.disabled=index===0;next.disabled=index===max();
+ };
+ const pages=()=>max()+1;
+ const buildDots=()=>{
+   dots.replaceChildren();
+   for(let i=0;i<pages();i++){
+     const b=document.createElement("button");b.type="button";b.setAttribute("aria-label","Afficher la réalisation "+(i+1));
+     b.addEventListener("click",()=>{index=i;render()});dots.append(b);
+   }
+ };
+ prev.addEventListener("click",()=>{index=Math.max(0,index-1);render()});
+ next.addEventListener("click",()=>{index=Math.min(max(),index+1);render()});
+ let resizeTimer;
+ window.addEventListener("resize",()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(()=>{buildDots();render()},120)});
+ buildDots();render();
+})();
