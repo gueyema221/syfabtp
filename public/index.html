@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SYFA BTP — bâtiment, travaux publics, études et réalisation au Sénégal.">
+  <meta name="theme-color" content="#142b45">
+  <title>SYFA BTP | Bâtiment & Travaux Publics</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="/" aria-label="SYFA BTP, accueil"><span>SYFA</span> BTP</a>
+    <nav aria-label="Navigation principale">
+      <a href="#services">Services</a><a href="#realisations">Réalisations</a><a href="#contact">Contact</a>
+    </nav>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">BÂTIMENT · TRAVAUX PUBLICS · CONSTRUCTION</p>
+        <h1>Construire durablement.<br><em>Réaliser avec précision.</em></h1>
+        <p>SYFA BTP accompagne vos projets de construction, de rénovation et d'aménagement, de l'étude à la réalisation.</p>
+        <a class="button" href="#contact">Demander un devis</a>
+      </div>
+      <div class="hero-panel"><div class="panel-mark">SYFA<br><small>BTP</small></div><p>Études · Exécution · Suivi de chantier</p></div>
+    </section>
+    <section id="services" class="section">
+      <p class="eyebrow">NOS COMPÉTENCES</p><h2>Des solutions pour vos projets</h2>
+      <div class="cards">
+        <article><b>01</b><h3>Construction</h3><p>Travaux de bâtiment, gros œuvre et second œuvre.</p></article>
+        <article><b>02</b><h3>Rénovation</h3><p>Réhabilitation, réaménagement et amélioration de bâtiments.</p></article>
+        <article><b>03</b><h3>Études & devis</h3><p>Études techniques, métrés, estimations et préparation des travaux.</p></article>
+      </div>
+    </section>
+    <section id="realisations" class="section projects">
+      <p class="eyebrow">PORTFOLIO</p><h2>Quelques réalisations</h2>
+      <p>Cette rubrique accueillera vos photos de chantiers, références et fiches de projets.</p>
+      <div class="project-placeholder">Ajoutez ici vos photos et références de chantier</div>
+    </section>
+    <section id="contact" class="section contact">
+      <div><p class="eyebrow">PARLONS DE VOTRE PROJET</p><h2>Demandez votre devis</h2><p>Décrivez votre besoin. L'équipe SYFA BTP pourra vous recontacter.</p></div>
+      <form id="contact-form">
+        <label>Nom<input name="name" required maxlength="120" autocomplete="name"></label>
+        <label>E-mail<input name="email" type="email" required maxlength="180" autocomplete="email"></label>
+        <label>Téléphone<input name="phone" type="tel" maxlength="40" autocomplete="tel"></label>
+        <label>Votre projet<textarea name="message" required maxlength="5000" rows="5"></textarea></label>
+        <label class="trap" aria-hidden="true">Site web<input name="website" tabindex="-1" autocomplete="off"></label>
+        <button class="button" type="submit">Envoyer la demande</button>
+        <p id="form-status" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+  <footer><strong>SYFA BTP</strong><span>© <span id="year"></span> — Tous droits réservés.</span></footer>
+  <script src="/app.js"></script>
+</body>
+</html>
