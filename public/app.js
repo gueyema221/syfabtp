@@ -16,14 +16,22 @@ const status = document.getElementById("form-status");
 form?.addEventListener("submit", event => {
   event.preventDefault();
   if (!form.reportValidity()) return;
+
   const data = Object.fromEntries(new FormData(form).entries());
-  const subject = encodeURIComponent("Demande de devis SYFA BTP — " + data.project);
-  const body = encodeURIComponent(
-    "Bonjour SYFA BTP,\n\nJe souhaite vous contacter au sujet de mon projet.\n\n" +
-    "Nom : " + data.name + "\nTéléphone : " + data.phone +
-    "\nE-mail : " + data.email + "\nType de projet : " + data.project +
-    "\n\nDescription :\n" + data.message + "\n\nCordialement,\n" + data.name
-  );
-  status.textContent = "Ouverture de votre application e-mail…";
-  window.location.href = "mailto:magueyegib1@gmail.com?subject=" + subject + "&body=" + body;
+  const message = [
+    "Bonjour SYFA BTP, je souhaite demander un devis.",
+    "",
+    "Nom : " + data.name,
+    "Téléphone : " + data.phone,
+    "E-mail : " + data.email,
+    "Type de projet : " + data.project,
+    "",
+    "Description du projet :",
+    data.message
+  ].join("\n");
+
+  const whatsappUrl = "https://wa.me/221777863234?text=" + encodeURIComponent(message);
+  status.textContent = "Ouverture de WhatsApp avec votre demande préremplie. Vérifiez le message puis appuyez sur Envoyer.";
+  window.open(whatsappUrl, "_blank", "noopener,noreferrer");
 });
+
