@@ -1,0 +1,17 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "syfabtp-site",
+  "main": "src/index.js",
+  "compatibility_date": "2026-10-31",
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "syfabtp-db",
+      "database_id": "REMPLACER_PAR_LE_DATABASE_ID"
+    }
+  ]
+}
