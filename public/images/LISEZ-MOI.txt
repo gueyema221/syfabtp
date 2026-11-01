@@ -1,0 +1,12 @@
+SYFA BTP — images à ajouter au dépôt GitHub
+
+Extraire le dossier public/ de cette archive à la racine du dépôt gueyema221/syfabtp,
+en conservant exactement les chemins et les noms de fichiers.
+
+Le site utilise déjà ces chemins :
+public/images/syfa/hero-residence.webp
+public/images/syfa/service-01-plan-3d-rdc.webp
+...
+public/images/syfa/service-08-devis-estimatif.webp
+
+Ne pas renommer les fichiers.
